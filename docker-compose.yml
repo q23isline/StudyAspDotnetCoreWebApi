@@ -1,0 +1,6 @@
+services:
+  studyaspdotnetcorewebapi.server:
+    image: ${DOCKER_REGISTRY-}studyaspdotnetcorewebapiserver
+    build:
+      context: .
+      dockerfile: StudyAspDotnetCoreWebApi.Server/Dockerfile
