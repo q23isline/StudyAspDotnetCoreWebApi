@@ -482,3 +482,10 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# ログファイル
+!/logs/
+/logs/*
+!/logs/db/
+/logs/db/*
+!/logs/db/.gitkeep
