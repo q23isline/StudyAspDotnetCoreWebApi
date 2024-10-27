@@ -4,7 +4,7 @@ namespace StudyAspDotnetCoreWebApi.Models;
 
 public partial class Profile : IRecordableTimestamp
 {
-    public Guid Id { get; set; } = Guid.Empty;
+    public Guid Id { get; set; } = Guid.NewGuid();
 
     [MaxLength(50)]
     [Display(Name = "名")]
