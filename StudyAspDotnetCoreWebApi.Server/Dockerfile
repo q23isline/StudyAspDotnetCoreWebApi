@@ -36,3 +36,8 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "StudyAspDotnetCoreWebApi.Server.dll"]
+
+# コンテナでマイグレーション等を行えるようにするための開発用ステージ
+FROM build AS develop
+WORKDIR "/src/StudyAspDotnetCoreWebApi.Server"
+RUN dotnet tool restore

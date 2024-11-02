@@ -1,3 +1,6 @@
+networks:
+  backend:
+
 volumes:
   db-data:
 
@@ -7,8 +10,18 @@ services:
     build:
       context: .
       dockerfile: StudyAspDotnetCoreWebApi.Server/Dockerfile
+      target: develop
+      args:
+        BUILD_CONFIGURATION: Debug
+    container_name: app
+    tty: true
+    volumes:
+      - ./StudyAspDotnetCoreWebApi.Server:/app
+      - ./:/src
     depends_on:
       - db
+    networks:
+      - backend
   db:
     build:
       context: .
