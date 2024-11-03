@@ -20,6 +20,12 @@ builder.Services.AddDbContext<MyContext>(options =>
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var provider = scope.ServiceProvider;
+    await Seed.Initialize(provider);
+}
+
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
