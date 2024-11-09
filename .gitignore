@@ -489,3 +489,6 @@ $RECYCLE.BIN/
 !/logs/db/
 /logs/db/*
 !/logs/db/.gitkeep
+!/logs/front/
+/logs/front/*
+!/logs/front/.gitkeep

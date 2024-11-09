@@ -2,6 +2,7 @@ networks:
   backend:
 
 volumes:
+  node:
   db-data:
 
 services:
@@ -15,9 +16,14 @@ services:
         BUILD_CONFIGURATION: Debug
     container_name: app
     tty: true
+    environment:
+      - NODE_ENV=development
+      - DOTNET_GENERATE_ASPNET_CERTIFICATE=false
     volumes:
       - ./StudyAspDotnetCoreWebApi.Server:/app
       - ./:/src
+      - ./logs/front:/root/.npm/_logs
+      - node:/src/studyaspdotnetcorewebapi.client/node_modules
     depends_on:
       - db
     networks:
